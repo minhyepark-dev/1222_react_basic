@@ -4,7 +4,6 @@ function Panel() {
     const arr = ["Blizzards", "Calm", "Dusty_Road", "Escape", "Payday", "Retreat", "Seasonal", "Vespers"];
     const path = process.env.PUBLIC_URL;
     const deg = 360 / arr.length;
-    const btnStyle = { position: "fixed", top: 0, left: 0 };
 
     /*
 		useState hook을 이용하면 state로 자주 변경되는 값을 관리가능
@@ -33,26 +32,21 @@ function Panel() {
 
     return (
         <>
-            <button style={btnStyle} onClick={changeState}>
-                button
-            </button>
-            <section>
-                {/* state로 관리하기 위해 기존 arr를 names로 변경해준다 */}
-                {names.map((data, index) => {
-                    let style = { transform: `rotate(${deg * index}deg) translateY(-100vh)` };
-                    let imgSrc = `${path}/img/${data}.jpg`;
-                    return (
-                        <article key={index} style={style}>
-                            <div className="inner">
-                                <div className="pic">
-                                    <img src={imgSrc} />
-                                </div>
-                                <h2>{data}</h2>
+            {/* state로 관리하기 위해 기존 arr를 names로 변경해준다 */}
+            {names.map((data, index) => {
+                let style = { transform: `rotate(${deg * index}deg) translateY(-100vh)` };
+                let imgSrc = `${path}/img/${data}.jpg`;
+                return (
+                    <article key={index} style={style}>
+                        <div className="inner">
+                            <div className="pic">
+                                <img src={imgSrc} />
                             </div>
-                        </article>
-                    );
-                })}
-            </section>
+                            <h2>{data}</h2>
+                        </div>
+                    </article>
+                );
+            })}
         </>
     );
 }
