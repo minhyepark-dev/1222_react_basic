@@ -1,7 +1,7 @@
 function Logo() {
     return (
         <h1>
-            <strong>DECODELAB5</strong>
+            <strong>DECODELAB change header again</strong>
             <br />
             <span>UI/UX DESIGN&DEVELOPMENT</span>
         </h1>
